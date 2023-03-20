@@ -1,0 +1,32 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.container{
+    /* width: 50%; */
+    margin: 0 auto;
+}
+
+input{
+    width: 89%;
+    padding: 5%;
+}
+
+table{
+    border: 1px solid black;
+  }
+table{
+    width: 30%;
+}
+.equal-button{
+    padding:115% 41%;
+}
+
+button{
+    padding: 11% 41%;
+}
+
+td{
+    padding: 1%;
+}
