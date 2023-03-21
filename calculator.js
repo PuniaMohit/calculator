@@ -1,8 +1,7 @@
 
-var of = document.getElementById('js-off').addEventListener('click',off);
-var screen = document.querySelector('.screen');
-var buttons = document.querySelectorAll('.button');
-var flag = 0;
+let of = document.getElementById('js-off').addEventListener('click',off);
+let screen = document.querySelector('.screen');
+let buttons = document.querySelectorAll('.button');let flag = 0;
 
 function off(){
     console.log('hello')
@@ -12,7 +11,7 @@ function off(){
 
 buttons.forEach(function(button){
     button.addEventListener('click', function(event){
-        var value = button.textContent;
+        let value = button.textContent;
         console.log(value)
        
         if(value === 'On' || value === 'Off'){
@@ -20,9 +19,9 @@ buttons.forEach(function(button){
         }
         else if(value === '='){
             flag = 1;
-            var postfix = convertToPostfix(document.querySelector('.screen').value);
+            let postfix = convertToPostfix(document.querySelector('.screen').value);
             console.log(postfix)
-            var answer = postfix_evaluation(postfix);
+            let answer = postfix_evaluation(postfix);
             document.querySelector('.screen').value = '';
             console.log(answer)
             document.querySelector('.screen').value = answer;
@@ -38,7 +37,7 @@ buttons.forEach(function(button){
 
 
 
-var priority = function(operator) {
+let priority = function(operator) {
     switch(operator)
     {
         case '+':
@@ -51,8 +50,7 @@ var priority = function(operator) {
             return(-1);
     }
 }
-
-var calculateValue = function(num1, operator, num2) {
+let calculateValue = function(num1, operator, num2) {
     switch(operator)
     {
         case '+':
@@ -66,9 +64,9 @@ var calculateValue = function(num1, operator, num2) {
     }
 }
 
-var convertToPostfix = function(infix){
-    var operators = [];
-    var postfix = '';
+let convertToPostfix = function(infix){
+    let operators = [];
+    let postfix = '';
     for(var i = 0; i < infix.length; i++) {
         if((infix[i] >= '0' && infix[i] <= '9') || infix[i] == '.' ){
             postfix += infix[i];
@@ -91,7 +89,7 @@ var convertToPostfix = function(infix){
                 else {
                     while(!(operators.length === 0) && priority(infix[i]) <= priority(operators[operators.length - 1])) {
                         console.log('if else wala ...phla while')
-                        var ch = operators[operators.length - 1];
+                        let ch = operators[operators.length - 1];
                         operators.pop();
                         postfix += ch;
                     }
@@ -105,7 +103,7 @@ var convertToPostfix = function(infix){
     postfix += ' ';
     while(!(operators.length === 0)) {
         console.log('dusre wala while')
-        var ch = operators[operators.length - 1];
+        let ch = operators[operators.length - 1];
         postfix += ch;
         operators.pop();
     }
@@ -113,10 +111,10 @@ var convertToPostfix = function(infix){
 }
 
 var postfix_evaluation = function(postfix) {
-    var answer = [], n, result;
+    let answer = [], n, result;
     for(var i = 0; i < postfix.length; i++) {
         if((postfix[i] >= '0' && postfix[i] <= '9') || postfix[i] == '.') {
-            var number = '';
+            let number = '';
             while(postfix[i] != ' ') {
                 number += postfix[i];
                 i++;
@@ -134,10 +132,10 @@ var postfix_evaluation = function(postfix) {
                 return(result);
             } else {
                 console.log("dusre else me gya")
-                var num2 = answer[answer.length - 1];
+                let num2 = answer[answer.length - 1];
                 console.log(num2)
                 answer.pop();
-                var num1 = answer[answer.length - 1];
+                let num1 = answer[answer.length - 1];
                 console.log(num1)
                 answer.pop();
                 console.log(postfix[i])
@@ -147,7 +145,7 @@ var postfix_evaluation = function(postfix) {
             }
         }
     }
-    var finalAns = answer[answer.length - 1];
+    let finalAns = answer[answer.length - 1];
     console.log(finalAns)
     answer.pop();
     if(answer.length === 0) {
